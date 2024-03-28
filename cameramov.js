@@ -1,4 +1,4 @@
-import * as THREE from './node_modules/three/build/three.module.js';
+import * as THREE from 'https://cdnjs.cloudflare.com/ajax/libs/three.js/0.162.0/three.module.js';
         // Variables para controlar la cámara y la escena
         var scene, camera, renderer;
         var cube, theta;
