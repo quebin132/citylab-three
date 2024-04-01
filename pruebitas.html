@@ -8,21 +8,16 @@
     </style>
 </head>
 <body>
-    <!-- <script src="https://threejs.org/build/three.js"></script> -->
+    <button id="shot">   Take Screenshot</button>
     <script type="module">
         import * as THREE from 'https://cdnjs.cloudflare.com/ajax/libs/three.js/0.162.0/three.module.js';
         // Variables para controlar la cámara y la escena
         var scene, camera, renderer;
         var cube, theta;
-<<<<<<< HEAD
-        var data;
+        var data,plane,plane2;
         var evento =  new KeyboardEvent('keydown',{
                         key:'0'   
                    });
-=======
-        var evento;
-        var data;
->>>>>>> c6f26df317a904cfa439a9e5b150fa063b0b4e03
         
 
         // Variables para controlar el movimiento
@@ -48,31 +43,67 @@
             cube = new THREE.Mesh(geometry, material);
             scene.add(cube);
 
+            var planegeo = new THREE.PlaneGeometry(100,100);
+            var materialplane = new THREE.MeshBasicMaterial({ color: 0xe0ae31, side: THREE.DoubleSide });
+            plane= new THREE.Mesh(planegeo,materialplane);
+            var planegeo2 = new THREE.PlaneGeometry(100,100);
+            var materialplane = new THREE.MeshBasicMaterial({ color: 0xe0ae31, side: THREE.DoubleSide });
+            plane2= new THREE.Mesh(planegeo2,materialplane);
+
+            plane2.position.y=10;
+            plane2.rotation.x= Math.PI/2;
+
+            plane.position.y=-2;
+            plane.rotation.x= Math.PI/2;
+            
+            scene.add(plane);
+            scene.add(plane2);
+            
+            
+
+
+
             // Crear el renderer
             renderer = new THREE.WebGLRenderer();
             renderer.setSize(window.innerWidth, window.innerHeight);
             document.body.appendChild(renderer.domElement);
+            document.getElementById("shot").addEventListener('click', takeScreenshot);
+            window.addEventListener('resize', onWindowResize, false);
 
             // Añadir detección de eventos de teclado
             // document.addEventListener('keydown', onKeyDown, false);
         }
+        function takeScreenshot() {
+
+            // open in new window like this
+            //
+            var w = window.open('', '');
+            w.document.title = "Screenshot";
+            //w.document.body.style.backgroundColor = "red";
+            var img = new Image();
+            // Without 'preserveDrawingBuffer' set to true, we must render now
+            renderer.render(scene, camera);
+            img.src = renderer.domElement.toDataURL();
+            w.document.body.appendChild(img);  
+        }
+        function onWindowResize() {
+            camera.aspect = window.innerWidth / window.innerHeight;
+            camera.updateProjectionMatrix();
+            renderer.setSize(window.innerWidth, window.innerHeight);
+        }
+
+
+    
+ 
         
         
         function animate() {
             
-<<<<<<< HEAD
             
             simulatekeydown(data);
 
           // Resto del código de la función animate()...
           // Actualizar la posición y rotación de la cámara en base a las teclas presionadas
-=======
-            if (data) {
-                simulatekeydown(data);
-
-        // Resto del código de la función animate()...
-        // Actualizar la posición y rotación de la cámara en base a las teclas presionadas
->>>>>>> c6f26df317a904cfa439a9e5b150fa063b0b4e03
             if (arrows.leftcamera) {
                 camera.rotation.y += rotateSpeed;
             }
@@ -108,17 +139,11 @@
                 camera.position.z += Math.cos(camera.rotation.y + Math.PI / 2) * moveSpeed;
             }
 
-<<<<<<< HEAD
             // console.log(data);
                 
             simulatekeyup(data)
             stopkey();
             // console.log(movement.forward)
-=======
-                console.log(data);
-                simulatekeyup(data);
-            }
->>>>>>> c6f26df317a904cfa439a9e5b150fa063b0b4e03
             
             
            
@@ -235,11 +260,7 @@
         function simulatekeydown(input){
             switch(input){
 
-<<<<<<< HEAD
                 case "1":
-=======
-                case "8":
->>>>>>> c6f26df317a904cfa439a9e5b150fa063b0b4e03
                     evento = new KeyboardEvent('keydown',{
                         key:'w'   
                     });
@@ -291,11 +312,7 @@
         function simulatekeyup(input){
             switch(input){
 
-<<<<<<< HEAD
                 case "1":
-=======
-                case "8":
->>>>>>> c6f26df317a904cfa439a9e5b150fa063b0b4e03
                     evento = new KeyboardEvent('keyup',{
                         key:'w'   
                     });
@@ -367,7 +384,5 @@
         init();
         animate();
     </script>
-
-        
 </body>
 </html
