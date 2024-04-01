@@ -14,8 +14,10 @@
         // Variables para controlar la cámara y la escena
         var scene, camera, renderer;
         var cube, theta;
-        var evento;
         var data;
+        var evento =  new KeyboardEvent('keydown',{
+                        key:'0'   
+                   });
         
 
         // Variables para controlar el movimiento
@@ -53,11 +55,11 @@
         
         function animate() {
             
-            if (data) {
-                simulatekeydown(data);
+            
+            simulatekeydown(data);
 
-        // Resto del código de la función animate()...
-        // Actualizar la posición y rotación de la cámara en base a las teclas presionadas
+          // Resto del código de la función animate()...
+          // Actualizar la posición y rotación de la cámara en base a las teclas presionadas
             if (arrows.leftcamera) {
                 camera.rotation.y += rotateSpeed;
             }
@@ -93,9 +95,11 @@
                 camera.position.z += Math.cos(camera.rotation.y + Math.PI / 2) * moveSpeed;
             }
 
-                console.log(data);
-                simulatekeyup(data);
-            }
+            // console.log(data);
+                
+            simulatekeyup(data)
+            stopkey();
+            // console.log(movement.forward)
             
             
            
@@ -212,44 +216,44 @@
         function simulatekeydown(input){
             switch(input){
 
-                case "8":
+                case "1":
                     evento = new KeyboardEvent('keydown',{
                         key:'w'   
                     });
                     
                     break;
-                case "a":
+                case "2":
                     evento = new KeyboardEvent('keydown',{
                         key:'a'
                     });
                     break;
-                case "s":
+                case "4":
                     evento = new KeyboardEvent('keydown',{
                         key:'s'
                     });
                     break;
-                case "d":
+                case "3":
                     evento = new KeyboardEvent('keydown',{
                         key:'d'
                     });
                     break;
-                case "777":
+                case "5":
                     evento = new KeyboardEvent('keydown',{
                         key:'ArrowUp'
                     });
                     
                     break;
-                case "ArrowDown":
+                case "8":
                     evento = new KeyboardEvent('keydown',{
                         key:'ArrowDown'
                     });
                     break;
-                case "ArrowRight":
+                case "7":
                     evento = new KeyboardEvent('keydown',{
                         key:'ArrowRight'
                     });
                     break;
-                case "ArrowLeft":
+                case "6":
                     evento = new KeyboardEvent('keydown',{
                         key:'ArrowLeft'
                     });
@@ -264,44 +268,44 @@
         function simulatekeyup(input){
             switch(input){
 
-                case "8":
+                case "1":
                     evento = new KeyboardEvent('keyup',{
                         key:'w'   
                     });
                     
                     break;
-                case "a":
+                case "2":
                     evento = new KeyboardEvent('keyup',{
                         key:'a'
                     });
                     break;
-                case "s":
+                case "4":
                     evento = new KeyboardEvent('keyup',{
                         key:'s'
                     });
                     break;
-                case "d":
+                case "3":
                     evento = new KeyboardEvent('keyup',{
                         key:'d'
                     });
                     break;
-                case "777":
+                case "5":
                     evento = new KeyboardEvent('keyup',{
                         key:'ArrowUp'
                     });
                     
                     break;
-                case "ArrowDown":
+                case "8":
                     evento = new KeyboardEvent('keyup',{
                         key:'ArrowDown'
                     });
                     break;
-                case "ArrowRight":
+                case "7":
                     evento = new KeyboardEvent('keyup',{
                         key:'ArrowRight'
                     });
                     break;
-                case "ArrowLeft":
+                case "6":
                     evento = new KeyboardEvent('keyup',{
                         key:'ArrowLeft'
                     });
@@ -312,6 +316,13 @@
             
                 
         }
+        function stopkey(){
+            data=0;
+            evento= new KeyboardEvent('keyup',{
+                        key:'0'   
+                    });
+        }
+
                     
 
                     
@@ -332,4 +343,4 @@
 
         
 </body>
-</html
+</html>
