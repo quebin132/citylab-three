@@ -14,11 +14,7 @@
         // Variables para controlar la cámara y la escena
         var scene, camera, renderer;
         var cube, theta;
-<<<<<<< HEAD
         var data,plane,plane2;
-=======
-        var data;
->>>>>>> e75db5bfab43fba0488290ea3b4eaca546158b18
         var evento =  new KeyboardEvent('keydown',{
                         key:'0'   
                    });
@@ -50,12 +46,13 @@
             var planegeo = new THREE.PlaneGeometry(100,100);
             var materialplane = new THREE.MeshBasicMaterial({ color: 0xe0ae31, side: THREE.DoubleSide });
             plane= new THREE.Mesh(planegeo,materialplane);
-            var planegeo2 = new THREE.PlaneGeometry(100,100);
-            var materialplane = new THREE.MeshBasicMaterial({ color: 0xe0ae31, side: THREE.DoubleSide });
-            plane2= new THREE.Mesh(planegeo2,materialplane);
+            //  TECHO
+            // var planegeo2 = new THREE.PlaneGeometry(100,100);
+            // var materialplane = new THREE.MeshBasicMaterial({ color: 0xe0ae31, side: THREE.DoubleSide });
+            // plane2= new THREE.Mesh(planegeo2,materialplane);
 
-            plane2.position.y=10;
-            plane2.rotation.x= Math.PI/2;
+            // plane2.position.y=10;
+            // plane2.rotation.x= Math.PI/2;
 
             plane.position.y=-2;
             plane.rotation.x= Math.PI/2;
@@ -254,7 +251,13 @@
                     break;
             }
         }
-      
+        function keysim(){
+
+            var prueba = new KeyboardEvent('keydown',{
+                key:'ArrowUp'
+            })
+            document.dispatchEvent(prueba);
+        }
         function simulatekeydown(input){
             switch(input){
 
@@ -383,4 +386,4 @@
         animate();
     </script>
 </body>
-</html>
+</html
