@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Captura de pantalla con JavaScript</title>
+
+</head>
+<body>
+<!-- Botón para capturar la pantalla -->
+<button id="captureButton">Capturar Pantalla</button>
+
+<script type="module" src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.4.1/html2canvas.min.js">
+    document.addEventListener('DOMContentLoaded', function () {
+        // Obtener referencia al botón
+        var captureButton = document.getElementById('captureButton');
+
+        // Agregar evento click al botón
+        captureButton.addEventListener('click', function () {
+            // Seleccionar el elemento del cuerpo de la página que quieres capturar
+            var body = document.body;
+
+            // Usar html2canvas para capturar la página
+            html2canvas(body).then(function(canvas) {
+                // Crear un nuevo documento en una ventana emergente
+                var newWindow = window.open();
+                var newDocument = newWindow.document;
+
+                // Crear un elemento de imagen en el nuevo documento y establecer su src como la imagen generada por html2canvas
+                var img = newDocument.createElement('img');
+                img.src = canvas.toDataURL();
+
+                // Agregar la imagen al nuevo documento
+                newDocument.body.appendChild(img);
+            });
+        });
+    });
+</script>
+</body>
+</html>
