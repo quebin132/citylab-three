@@ -14,10 +14,15 @@
         // Variables para controlar la cámara y la escena
         var scene, camera, renderer;
         var cube, theta;
+<<<<<<< HEAD
         var data;
         var evento =  new KeyboardEvent('keydown',{
                         key:'0'   
                    });
+=======
+        var evento;
+        var data;
+>>>>>>> c6f26df317a904cfa439a9e5b150fa063b0b4e03
         
 
         // Variables para controlar el movimiento
@@ -55,11 +60,19 @@
         
         function animate() {
             
+<<<<<<< HEAD
             
             simulatekeydown(data);
 
           // Resto del código de la función animate()...
           // Actualizar la posición y rotación de la cámara en base a las teclas presionadas
+=======
+            if (data) {
+                simulatekeydown(data);
+
+        // Resto del código de la función animate()...
+        // Actualizar la posición y rotación de la cámara en base a las teclas presionadas
+>>>>>>> c6f26df317a904cfa439a9e5b150fa063b0b4e03
             if (arrows.leftcamera) {
                 camera.rotation.y += rotateSpeed;
             }
@@ -95,11 +108,17 @@
                 camera.position.z += Math.cos(camera.rotation.y + Math.PI / 2) * moveSpeed;
             }
 
+<<<<<<< HEAD
             // console.log(data);
                 
             simulatekeyup(data)
             stopkey();
             // console.log(movement.forward)
+=======
+                console.log(data);
+                simulatekeyup(data);
+            }
+>>>>>>> c6f26df317a904cfa439a9e5b150fa063b0b4e03
             
             
            
@@ -216,7 +235,11 @@
         function simulatekeydown(input){
             switch(input){
 
+<<<<<<< HEAD
                 case "1":
+=======
+                case "8":
+>>>>>>> c6f26df317a904cfa439a9e5b150fa063b0b4e03
                     evento = new KeyboardEvent('keydown',{
                         key:'w'   
                     });
@@ -268,7 +291,11 @@
         function simulatekeyup(input){
             switch(input){
 
+<<<<<<< HEAD
                 case "1":
+=======
+                case "8":
+>>>>>>> c6f26df317a904cfa439a9e5b150fa063b0b4e03
                     evento = new KeyboardEvent('keyup',{
                         key:'w'   
                     });
